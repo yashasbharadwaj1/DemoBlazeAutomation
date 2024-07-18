@@ -2,6 +2,10 @@ import time
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+
+from pageObjects.CartPage import CartPage
 from utilities.Common import BaseClass
 
 
@@ -27,6 +31,8 @@ class HomePage(BaseClass):
     lastproductName = (By.CSS_SELECTOR, ".name")
     lastproductPrice = (By.CSS_SELECTOR, ".price-container")
     addToCartButton = (By.LINK_TEXT, "Add to cart")
+
+    cartPageLink = (By.LINK_TEXT, "Cart")
 
     def __init__(self, driver):
         self.driver = driver
@@ -94,6 +100,8 @@ class HomePage(BaseClass):
         li = []
         for product in products:
             try:
+                time.sleep(1)
+                self.verifyLinkPresence(product)
                 actualProduct = self.driver.find_element(By.LINK_TEXT, product)
                 li.append(actualProduct.text)
             except NoSuchElementException:
@@ -101,16 +109,28 @@ class HomePage(BaseClass):
                 li.append(None)
         return li
 
-    def performAddToCart(self):
+    def performAddToCart(self, log):
+        time.sleep(1)
         self.driver.find_element(*HomePage.nextButton).click()
         self.verifyLinkPresence("MacBook Pro")
         self.driver.find_element(*HomePage.lastproductLink).click()
         productName = self.driver.find_element(*HomePage.lastproductPrice).text
         productPrice = self.driver.find_element(*HomePage.lastproductPrice).text
         self.driver.find_element(*HomePage.addToCartButton).click()
+        log.info(f"{productName}-{productPrice} being added to cart")
         return productName, productPrice
 
-    def confirmAddToCart(self):
-        self.performAddToCart()
-        actualAlertText = self.returnAlertText()
-        return actualAlertText
+    def performCheckout(self, log, orderData):
+        self.performAddToCart(log)
+        WebDriverWait(self.driver, 5).until(expected_conditions.alert_is_present())
+        self.driver.switch_to.alert.accept()
+        self.driver.switch_to.default_content()
+        self.driver.find_element(*HomePage.cartPageLink).click()
+        cartPage = CartPage(self.driver)
+        flag = cartPage.getCartItems(log)
+        if not flag:
+            raise Exception("assertion actualCartItems == expectedCartItems failed")
+        purchaseConfirmationMessage = cartPage.placeOrder(log, orderData)
+        return purchaseConfirmationMessage
+
+

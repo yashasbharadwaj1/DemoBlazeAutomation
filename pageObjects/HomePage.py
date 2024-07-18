@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -11,7 +13,7 @@ class HomePage(BaseClass):
     signupPassword = (By.CSS_SELECTOR, "#sign-password")
     signupButton = (By.CSS_SELECTOR, "button[onclick='register()']")
 
-    loginLink = (By.CSS_SELECTOR, "#login2")
+    loginLink = (By.LINK_TEXT, "Log in")
     loginUserName = (By.CSS_SELECTOR, "#loginusername")
     loginPassword = (By.CSS_SELECTOR, "#loginpassword")
     loginButton = (By.CSS_SELECTOR, "button[onclick='logIn()']")
@@ -26,10 +28,15 @@ class HomePage(BaseClass):
         self.driver.find_element(*HomePage.signupUserName).send_keys(SignupData["userName"])
         self.driver.find_element(*HomePage.signupPassword).send_keys(SignupData["password"])
         self.driver.find_element(*HomePage.signupButton).click()
+        WebDriverWait(self.driver, 5).until(EC.alert_is_present())
+        alert = self.driver.switch_to.alert
+        actualSignupAlertText = alert.text
+        return actualSignupAlertText
 
     def submitLoginFormPositiveCase(self, LoginData):
         self.driver.find_element(*HomePage.loginLink).click()
         self.driver.find_element(*HomePage.loginUserName).send_keys(LoginData["userName"])
+        time.sleep(1)
         self.driver.find_element(*HomePage.loginPassword).send_keys(LoginData["password"])
         self.driver.find_element(*HomePage.loginButton).click()
         userName = LoginData["userName"]
@@ -39,8 +46,10 @@ class HomePage(BaseClass):
         return actualWelcomeTextAfterLogin
 
     def submitLoginFormNegativeCase(self, LoginData):
+        self.verifyLinkPresence("Log in")
         self.driver.find_element(*HomePage.loginLink).click()
         self.driver.find_element(*HomePage.loginUserName).send_keys(LoginData["userName"])
+        time.sleep(1)
         self.driver.find_element(*HomePage.loginPassword).send_keys(LoginData["password"])
         self.driver.find_element(*HomePage.loginButton).click()
         WebDriverWait(self.driver, 5).until(EC.alert_is_present())

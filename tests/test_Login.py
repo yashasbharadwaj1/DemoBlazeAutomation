@@ -23,11 +23,11 @@ class TestLogin(BaseClass):
 
     def test_loginNegativeCase(self,getNegativeLoginData):
         log = self.getLogger()
-        expectedLoginFailureAlertTextList = ["Wrong password.","Please fill out Username and Password."]
+        expectedLoginFailureAlertTextList = "Wrong password."
         homePage = HomePage(self.driver)
         actualLoginFailureAlertText = homePage.submitLoginFormNegativeCase(getNegativeLoginData)
         log.info(f"actualLoginAlertText :- {actualLoginFailureAlertText}")
-        assert actualLoginFailureAlertText in expectedLoginFailureAlertTextList
+        assert actualLoginFailureAlertText == expectedLoginFailureAlertTextList
 
     @pytest.fixture(params=HomePageData.negative_login_data)
     def getNegativeLoginData(self, request):

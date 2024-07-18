@@ -1,0 +1,34 @@
+2024-07-18 11:58:25,340 :INFO : test_login :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 12:06:19,696 :INFO : test_login :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 12:07:21,858 :INFO : test_login :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 13:10:42,605 :INFO : test_login :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 13:16:35,711 :INFO : test_login :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 13:16:36,927 :INFO : test_login :actualLoginAlertText :- Wrong password.
+2024-07-18 13:25:09,652 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 13:26:17,731 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 13:27:58,011 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 13:27:59,298 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-07-18 13:30:44,014 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-07-18 13:32:22,515 :INFO : test_loginNegativeCase :actualLoginAlertText :- Please fill out Username and Password.
+2024-07-18 13:32:50,230 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 13:32:51,601 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-07-18 14:18:10,136 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 14:18:12,001 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-07-18 14:19:27,134 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 14:19:28,500 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-07-18 14:21:13,468 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 14:21:15,660 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-07-18 14:41:50,611 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 14:41:52,930 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-07-18 14:42:00,312 :INFO : test_signupNegativeCase :actualSignupFailureAlertText:- Please fill out Username and Password.
+2024-07-18 14:43:09,220 :INFO : test_signupNegativeCase :actualSignupFailureAlertText:- This user already exist.
+2024-07-18 14:44:32,052 :INFO : test_signupNegativeCase :actualSignupFailureAlertText:- This user already exist.
+2024-07-18 14:46:07,818 :INFO : test_signupNegativeCase :actualSignupFailureAlertText:- This user already exist.
+2024-07-18 14:48:22,109 :INFO : test_signupNegativeCase :actualSignupFailureAlertText:- This user already exist.
+2024-07-18 14:49:10,391 :INFO : test_signupNegativeCase :actualSignupFailureAlertText:- Please fill out Username and Password.
+2024-07-18 14:49:38,319 :INFO : test_signupNegativeCase :actualSignupFailureAlertText:- This user already exist.
+2024-07-18 14:50:23,131 :INFO : test_signupNegativeCase :actualSignupFailureAlertText:- This user already exist.
+2024-07-18 15:15:22,909 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 15:15:25,164 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-07-18 15:51:48,067 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-07-18 15:51:50,383 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.

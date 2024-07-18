@@ -16,6 +16,12 @@ class BaseClass:
             expected_conditions.presence_of_element_located((By.LINK_TEXT, text))
         )
 
+    def returnAlertText(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.alert_is_present())
+        alert = self.driver.switch_to.alert
+        text = alert.text
+        return text
+
     def getLogger(self):
         loggerName = inspect.stack()[1][3]
         logger = logging.getLogger(loggerName)

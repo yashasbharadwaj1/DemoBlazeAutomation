@@ -1,6 +1,8 @@
 import pytest
 from selenium import webdriver
 
+from TestData.HomePageData import HomePageData
+
 driver = None
 Url = "https://www.demoblaze.com/index.html"
 
@@ -32,3 +34,8 @@ def setup(request):
     request.cls.driver = driver
     yield
     driver.quit()
+
+
+@pytest.fixture(params=HomePageData.positive_login_data)
+def getLoginData(request):
+    return request.param

@@ -1,9 +1,5 @@
 import time
-
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 from utilities.Common import BaseClass
 
 
@@ -28,17 +24,18 @@ class HomePage(BaseClass):
         self.driver.find_element(*HomePage.signupUserName).send_keys(SignupData["userName"])
         self.driver.find_element(*HomePage.signupPassword).send_keys(SignupData["password"])
         self.driver.find_element(*HomePage.signupButton).click()
-        WebDriverWait(self.driver, 5).until(EC.alert_is_present())
-        alert = self.driver.switch_to.alert
-        actualSignupAlertText = alert.text
-        return actualSignupAlertText
+        actualSignupFailureAlertText = self.returnAlertText()
+        return actualSignupFailureAlertText
 
-    def submitLoginFormPositiveCase(self, LoginData):
+    def performLogin(self, LoginData):
         self.driver.find_element(*HomePage.loginLink).click()
         self.driver.find_element(*HomePage.loginUserName).send_keys(LoginData["userName"])
         time.sleep(1)
         self.driver.find_element(*HomePage.loginPassword).send_keys(LoginData["password"])
         self.driver.find_element(*HomePage.loginButton).click()
+
+    def submitLoginFormPositiveCase(self, LoginData):
+        self.performLogin(LoginData)
         userName = LoginData["userName"]
         welcomeTextAfterLogin = f"Welcome {userName}"
         self.verifyLinkPresence(welcomeTextAfterLogin)
@@ -47,15 +44,15 @@ class HomePage(BaseClass):
 
     def submitLoginFormNegativeCase(self, LoginData):
         self.verifyLinkPresence("Log in")
-        self.driver.find_element(*HomePage.loginLink).click()
-        self.driver.find_element(*HomePage.loginUserName).send_keys(LoginData["userName"])
-        time.sleep(1)
-        self.driver.find_element(*HomePage.loginPassword).send_keys(LoginData["password"])
-        self.driver.find_element(*HomePage.loginButton).click()
-        WebDriverWait(self.driver, 5).until(EC.alert_is_present())
-        alert = self.driver.switch_to.alert
-        actualLoginAlertText = alert.text
+        self.performLogin(LoginData)
+        actualLoginAlertText = self.returnAlertText()
         return actualLoginAlertText
 
     def performLogout(self):
         self.driver.find_element(*HomePage.logoutLink).click()
+
+    def confirmLogoutHappened(self, LoginData):
+        self.submitLoginFormPositiveCase(LoginData)
+        self.performLogout()
+        loginText = self.driver.find_element(*HomePage.loginLink).text
+        return loginText

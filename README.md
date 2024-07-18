@@ -7,7 +7,7 @@ implemented page Object mechanism , pytest data driven fixtures in framework des
 Setup Instruction 
 pip install -r requirements.txt 
 
-To run the test cases 
+To run the test cases from root folder
 py.test --html="report.html"
 
 report.html 

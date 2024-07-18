@@ -1,5 +1,8 @@
 class HomePageData:
     signup_data = [
+        # this data helps to test both positive and negative case
+        # first time test result is Signup successful.
+        # second time result is This user already exist.
         {"userName":"TesterOne","password":"tester"},
     ]
 

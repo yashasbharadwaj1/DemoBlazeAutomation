@@ -15,3 +15,10 @@ class HomePageData:
         # Negative scenario: Attempt to log in with invalid credentials.
         {"userName": "1", "password": "a"}
     ]
+
+    expected_products_data = [
+        {"category": "phones", "products": ["Samsung galaxy s6", "Nokia lumia 1520"]},
+        {"category": "laptops", "products": ["Sony vaio i5", "Sony vaio i7"]},
+        {"category": "monitors", "products": ["Apple monitor 24", "ASUS Full HD"]}
+    ]
+

@@ -5,7 +5,7 @@ from utilities.Common import BaseClass
 
 
 @pytest.mark.usefixtures("getLoginData")
-class TestLogot(BaseClass):
+class TestLogout(BaseClass):
 
     def test_logout(self,getLoginData):
         log = self.getLogger()
@@ -13,4 +13,5 @@ class TestLogot(BaseClass):
         expectedLoginText = "Log in"
         homePage = HomePage(self.driver)
         actualLoginText = homePage.confirmLogoutHappened(getLoginData)
+        log.info("logged out successfully")
         assert actualLoginText == expectedLoginText

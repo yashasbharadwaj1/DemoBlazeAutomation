@@ -13,21 +13,22 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="class")
 def setup(request):
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("headless")
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.add_argument("headless")
     global driver
     browser_name = request.config.getoption("browser_name")
     if browser_name == "chrome":
-        driver = webdriver.Chrome(options=chrome_options)
+        # driver = webdriver.Chrome(options=chrome_options)
+        driver = webdriver.Chrome()
     elif browser_name == "firefox":
         driver = webdriver.Firefox()
     elif browser_name == "edge":
         driver = webdriver.Edge()
     else:
-        driver = webdriver.Chrome(options=chrome_options)
+        driver = webdriver.Chrome()
     driver.get(Url)
     driver.maximize_window()
     driver.implicitly_wait(6)
     request.cls.driver = driver
     yield
-    driver.close()
+    driver.quit()

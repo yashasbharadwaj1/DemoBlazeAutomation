@@ -4,6 +4,9 @@
 
 Automated E-commerce Application (https://www.demoblaze.com/) using Selenium, Pytest with page object mechanism, pytest data driven fixtures implemented in the framework design.
 
+## Project Output Demo Video 
+https://www.youtube.com/watch?v=KJhBYUmLBiE
+
 ## Setup Instructions
 
 

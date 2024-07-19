@@ -10,6 +10,19 @@ pip install -r requirements.txt
 To run the test cases from root folder
 py.test --html="report.html"
 
+chrome runs by default 
+
+For cross broser testing use below commands 
+
+fro chrome
+py.test --browser_name="chrome" 
+
+for firefox
+py.test --browser_name="firefox" 
+
+for edge 
+py.test --browser_name="edge" 
+
 report.html 
 shows a comprehensive test report 
 

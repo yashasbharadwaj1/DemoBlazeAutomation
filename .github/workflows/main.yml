@@ -1,6 +1,9 @@
 name: test01
 on:
-  workflow_dispatch:  
+  push:
+    paths:
+      - 'tests/**'
+  workflow_dispatch:
 jobs:
   test01:
     runs-on: ubuntu-latest

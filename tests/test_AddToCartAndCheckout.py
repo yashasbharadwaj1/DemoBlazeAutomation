@@ -6,7 +6,7 @@ from utilities.Common import BaseClass
 
 
 class TestAddToCartAndCheckout(BaseClass):
-    # Successfully check the items added to the cart.
+
     def test_addToCartAndCheckout(self, getOrderData):
         expectedPurchaseConformationMessage = "Thank you for your purchase!"
         log = self.getLogger()

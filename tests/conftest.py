@@ -27,7 +27,8 @@ def setup(request):
     elif browser_name == "edge":
         driver = webdriver.Edge()
     else:
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(options=chrome_options)
+        #driver = webdriver.Chrome()
     driver.get(Url)
     driver.maximize_window()
     driver.implicitly_wait(10)

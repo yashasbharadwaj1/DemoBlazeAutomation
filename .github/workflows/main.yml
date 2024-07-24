@@ -18,12 +18,9 @@ jobs:
       - name: Install the necessary packages
         run: 
           pip install -r requirements.txt
-      - name: Run the TestSuite on Chrome
-        run: py.test --browser_name="chrome" 
-      - name: Run the TestSuite on Firefox
-        run: py.test --browser_name="firefox" 
-      - name: Run the TestSuite on Edge
-        run: py.test --browser_name="edge" 
+      - name: Run the TestSuite
+        run: py.test
+
       
     
   

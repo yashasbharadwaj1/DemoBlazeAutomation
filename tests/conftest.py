@@ -1,6 +1,9 @@
 import pytest
 from selenium import webdriver
-
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from selenium.webdriver.firefox.options import Options as FirefoxOptions 
+from selenium.webdriver.edge.service import Service as EdgeService
+from selenium.webdriver.edge.options import Options as EdgeOptions
 from TestData.HomePageData import HomePageData
 
 driver = None
@@ -22,10 +25,16 @@ def setup(request):
     if browser_name == "chrome":
         driver = webdriver.Chrome(options=chrome_options)
         #driver = webdriver.Chrome()
-    elif browser_name == "firefox":
-        driver = webdriver.Firefox()
+    elif browser_name == "firefox": 
+        firefox_options = FirefoxOptions()
+        firefox_options.add_argument("--headless")
+        firefox_service = FirefoxService("/snap/bin/firefox.geckodriver")
+        driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
+
     elif browser_name == "edge":
-        driver = webdriver.Edge()
+        edge_options = EdgeOptions()
+        edge_options.add_argument("--headless")
+        driver = webdriver.Edge(options=edge_options)
     else:
         driver = webdriver.Chrome(options=chrome_options)
         #driver = webdriver.Chrome()

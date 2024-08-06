@@ -118,3 +118,26 @@
 2024-08-06 13:21:48,163 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
 2024-08-06 13:21:50,267 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
 2024-08-06 13:21:56,828 :INFO : test_logout :logged out successfully
+2024-08-06 14:39:45,808 :INFO : test_addToCartAndCheckout :$1100 *includes tax-$1100 *includes tax being added to cart
+2024-08-06 14:39:48,372 :INFO : test_addToCartAndCheckout :assertion actualCartItems == expectedCartItems passed
+2024-08-06 14:40:11,532 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-08-06 14:40:29,740 :INFO : test_logout :logged out successfully
+2024-08-06 14:44:00,169 :INFO : test_addToCartAndCheckout :$1100 *includes tax-$1100 *includes tax being added to cart
+2024-08-06 14:44:02,947 :INFO : test_addToCartAndCheckout :assertion actualCartItems == expectedCartItems passed
+2024-08-06 14:44:22,898 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-08-06 14:44:37,655 :INFO : test_logout :logged out successfully
+2024-08-06 15:23:29,132 :INFO : test_addToCartAndCheckout :$1100 *includes tax-$1100 *includes tax being added to cart
+2024-08-06 15:23:32,399 :INFO : test_addToCartAndCheckout :assertion actualCartItems == expectedCartItems passed
+2024-08-06 15:23:48,906 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-08-06 15:23:51,423 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-08-06 15:24:02,550 :INFO : test_logout :logged out successfully
+2024-08-06 15:31:30,347 :INFO : test_addToCartAndCheckout :$1100 *includes tax-$1100 *includes tax being added to cart
+2024-08-06 15:31:33,673 :INFO : test_addToCartAndCheckout :assertion actualCartItems == expectedCartItems passed
+2024-08-06 15:31:46,596 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-08-06 15:31:49,300 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-08-06 15:31:57,386 :INFO : test_logout :logged out successfully
+2024-08-06 16:14:11,498 :INFO : test_addToCartAndCheckout :$1100 *includes tax-$1100 *includes tax being added to cart
+2024-08-06 16:14:14,612 :INFO : test_addToCartAndCheckout :assertion actualCartItems == expectedCartItems passed
+2024-08-06 16:14:27,141 :INFO : test_loginPositiveCase :LoginFormSubmission Outcome :- Welcome TesterOne
+2024-08-06 16:14:29,584 :INFO : test_loginNegativeCase :actualLoginAlertText :- Wrong password.
+2024-08-06 16:14:36,457 :INFO : test_logout :logged out successfully
